@@ -5,6 +5,7 @@ import TextLabel from "./components/TextLabel/TextLabel";
 import OutputContainer from "./components/OutputContainer/OutputContainer";
 import ProcessButton from "./components/ProcessButton/ProcessButton";
 import InputWordField from "./components/InputWordField/InputWordField";
+import { processWord } from "./utils/utils";
 
 const inputs = document.querySelectorAll("input");
 
@@ -17,24 +18,6 @@ inputs.forEach((el) => {
     }
   });
 });
-
-export function processWord(input) {
-  const charCount = {};
-  for (let char of input) {
-    charCount[char] = (charCount[char] || 0) + 1;
-  }
-
-  const sortedChars = Object.keys(charCount).sort(
-    (a, b) => charCount[b] - charCount[a]
-  );
-
-  let result = "";
-  for (let char of sortedChars) {
-    result += char.repeat(charCount[char]);
-  }
-
-  return result;
-}
 
 function App() {
   const [input, setInput] = useState("");
