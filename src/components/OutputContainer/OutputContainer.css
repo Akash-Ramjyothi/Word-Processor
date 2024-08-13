@@ -1,0 +1,15 @@
+.outputContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #42c0f2;
+  border-radius: 10px;
+  color: #165b76;
+  background: #cfeffc;
+  height: 70px;
+  width: 300px;
+  margin-top: 10px;
+  margin-left: 42%;
+  font-weight: 500;
+  font-size: 20px;
+}

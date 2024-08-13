@@ -21,17 +21,7 @@
 }
 
 .parent-container {
-  padding-top: 0px;
-}
-
-.title {
-  text-transform: uppercase;
-  background: linear-gradient(to right, #30cfd0 0%, #330867 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font: {
-    size: 20vw;
-  }
+  padding-top: 10%;
 }
 
 .custom-field {
@@ -280,25 +270,4 @@
 
 .button--animated:hover .button__icon {
   right: 20px;
-}
-
-.processed-word {
-  font-weight: 700;
-  font-size: 20px;
-}
-
-.outputContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #42c0f2;
-  border-radius: 10px;
-  color: #165b76;
-  background: #cfeffc;
-  height: 70px;
-  width: 300px;
-  margin-top: 10px;
-  margin-left: 42%;
-  font-weight: 500;
-  font-size: 20px;
 }

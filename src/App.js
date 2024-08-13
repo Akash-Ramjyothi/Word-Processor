@@ -1,6 +1,8 @@
-import logo from "./logo.svg";
 import { useState } from "react";
 import "./App.css";
+import Title from "./components/Title/Title";
+import TextLabel from "./components/TextLabel/TextLabel";
+import OutputContainer from "./components/OutputContainer/OutputContainer";
 
 const inputs = document.querySelectorAll("input");
 
@@ -49,7 +51,7 @@ function App() {
   return (
     <div className="App">
       <div className="parent-container">
-        <h1 className="title">Word Processor</h1>
+        <Title text="Word Processor" />
         <label className="custom-field three">
           <input
             type="text"
@@ -66,8 +68,8 @@ function App() {
           <span class="button__icon">→</span>
         </button>
         <br />
-        <label className="processed-word">Processed Word: </label>
-        {output !== "" && <div className="outputContainer">{output}</div>}
+        <TextLabel>Processed Word:</TextLabel>
+        {output !== "" && <OutputContainer processedWord={output} />}
       </div>
     </div>
   );
