@@ -3,6 +3,8 @@ import "./App.css";
 import Title from "./components/Title/Title";
 import TextLabel from "./components/TextLabel/TextLabel";
 import OutputContainer from "./components/OutputContainer/OutputContainer";
+import ProcessButton from "./components/ProcessButton/ProcessButton";
+import InputWordField from "./components/InputWordField/InputWordField";
 
 const inputs = document.querySelectorAll("input");
 
@@ -52,21 +54,9 @@ function App() {
     <div className="App">
       <div className="parent-container">
         <Title text="Word Processor" />
-        <label className="custom-field three">
-          <input
-            type="text"
-            value={input}
-            onChange={handleChange}
-            placeholder=""
-          />
-          <span class="placeholder">Enter word to be processed</span>
-          <span class="border"></span>
-        </label>
+        <InputWordField value={input} onChange={handleChange} />
         <br />
-        <button className="button button--animated" onClick={handleSubmit}>
-          <span class="button__text">Submit</span>
-          <span class="button__icon">→</span>
-        </button>
+        <ProcessButton onClick={handleSubmit} />
         <br />
         <TextLabel>Processed Word:</TextLabel>
         {output !== "" && <OutputContainer processedWord={output} />}

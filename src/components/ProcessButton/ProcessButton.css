@@ -1,0 +1,46 @@
+.button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 12px 34px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:focus {
+  outline: 3px solid rgba(0, 98, 131, 0.5);
+  outline-offset: 2px;
+}
+
+.button--text:hover {
+  text-decoration: underline;
+}
+
+.button--animated {
+  background-color: var(--primary-color);
+  color: white;
+  overflow: hidden;
+  position: relative;
+}
+
+.button--animated .button__text {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.button--animated .button__icon {
+  position: absolute;
+  right: -20px;
+  transition: right 0.3s ease;
+}
+
+.button--animated:hover .button__text {
+  transform: translateX(-10px);
+}
+
+.button--animated:hover .button__icon {
+  right: 20px;
+}
