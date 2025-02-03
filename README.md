@@ -36,3 +36,6 @@ The character 's' appears 4 times, 'i' appears 4 times, 'p' appears 2 times, and
 ## 📽 Sample Demo:
 https://github.com/user-attachments/assets/63fb7c1d-2421-43c9-95f2-bc42ad22d7ed
 
+### Logs:
+Adding GitHub pages CI/CD.
+
