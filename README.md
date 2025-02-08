@@ -42,3 +42,4 @@ Optimizing time-complexity.
 Fixing conditional statements.
 Adding mote test-cases.
 Initiated Jest unit-testing.
+Initializing Jest.
