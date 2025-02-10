@@ -44,3 +44,4 @@ Adding mote test-cases.
 Initiated Jest unit-testing.
 Initializing Jest.
 Validating output compiled.
+Increasing code-coverage.
