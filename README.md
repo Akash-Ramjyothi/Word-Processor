@@ -45,3 +45,4 @@ Initiated Jest unit-testing.
 Initializing Jest.
 Validating output compiled.
 Increasing code-coverage.
+Fixing bugs.
