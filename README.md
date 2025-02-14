@@ -48,3 +48,4 @@ Increasing code-coverage.
 Fixing bugs.
 Adding new object field keys.
 Developing special flow.
+Removing inexecutable cases.
