@@ -51,3 +51,4 @@ Developing special flow.
 Removing inexecutable cases.
 Developing validation flow.
 Increasing code-coverage.
+Removing unecessary explicit conditions.
