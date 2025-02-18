@@ -52,3 +52,4 @@ Removing inexecutable cases.
 Developing validation flow.
 Increasing code-coverage.
 Removing unecessary explicit conditions.
+Optimizing re-usability in coponents.
