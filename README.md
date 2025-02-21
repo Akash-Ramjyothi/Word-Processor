@@ -55,3 +55,4 @@ Removing unecessary explicit conditions.
 Optimizing re-usability in coponents.
 Writing unit-tests.
 Covering catch-blocks.
+Creating multiple .test files.
