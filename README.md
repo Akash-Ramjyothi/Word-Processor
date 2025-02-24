@@ -58,3 +58,4 @@ Covering catch-blocks.
 Creating multiple .test files.
 Covering index.tsx file.
 Debugging issues.
+Updating changelog.
