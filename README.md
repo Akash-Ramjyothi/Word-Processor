@@ -60,3 +60,4 @@ Covering index.tsx file.
 Debugging issues.
 Updating changelog.
 Testing with various new test-cases.
+Increasing more executable logic blocks.
