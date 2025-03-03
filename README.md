@@ -64,4 +64,4 @@ Increasing more executable logic blocks.
 Covering edce-cases in unit-testing.
 Mocking asynchronous blocks.
 Covering edge-cases in catch blocks.
-iNCREASING CODE-COVERAGE FURTHER.
+Increasing code-coverage further.
