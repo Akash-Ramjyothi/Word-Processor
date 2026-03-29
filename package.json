@@ -1,22 +1,45 @@
 {
-  "homepage": "https://Akash-Ramjyothi.github.io/word-processor",
   "name": "kiffer-ai",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
+  "description": "AI-powered word processor built with React",
+  "homepage": "https://Akash-Ramjyothi.github.io/word-processor",
+  "author": "Akash Ramjyothi",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "ai",
+    "word-processor",
+    "editor",
+    "frontend"
+  ],
+  "engines": {
+    "node": ">=18",
+    "npm": ">=9"
+  },
   "dependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
+  "devDependencies": {
+    "gh-pages": "^6.1.1",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0"
+  },
   "scripts": {
     "start": "react-scripts start",
+    "start:prod": "serve -s build",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "build:analyze": "source-map-explorer 'build/static/js/*.js'",
+    "test": "react-scripts test --watchAll=false",
+    "test:watch": "react-scripts test",
+    "lint": "eslint src --ext .js,.jsx",
+    "lint:fix": "eslint src --ext .js,.jsx --fix",
+    "format": "prettier --write \"src/**/*.{js,jsx,json,css,md}\"",
+    "clean": "rm -rf build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
@@ -24,21 +47,23 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "no-unused-vars": "warn",
+      "no-console": "warn"
+    }
   },
   "browserslist": {
     "production": [
-      ">0.2%",
+      ">0.5%",
       "not dead",
-      "not op_mini all"
+      "not op_mini all",
+      "not IE 11"
     ],
     "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+      "last 2 chrome version",
+      "last 2 firefox version",
+      "last 2 safari version"
     ]
-  },
-  "devDependencies": {
-    "gh-pages": "^6.1.1"
   }
 }
