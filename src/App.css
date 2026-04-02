@@ -1,28 +1,87 @@
+/* Root variables for easy theming */
+:root {
+  --primary-bg: #282c34;
+  --primary-text: #ffffff;
+  --accent-color: #61dafb;
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Reset & base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--primary-bg);
+  color: var(--primary-text);
+}
+
+/* Main App container */
 .App {
   text-align: center;
+  padding: 1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
+/* Header styling */
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1.5rem;
   font-size: calc(10px + 2vmin);
-  color: white;
+  background: linear-gradient(135deg, #1f2230, var(--primary-bg));
 }
 
+/* Logo styling */
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect for logo */
+.App-logo:hover {
+  transform: scale(1.05);
+}
+
+/* Animation (respects reduced motion preference) */
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin 20s linear infinite;
+  }
+}
+
+/* Link styling */
 .App-link {
-  color: #61dafb;
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
+.App-link:hover {
+  color: #21a1f1;
+  transform: translateY(-2px);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .App-header {
+    font-size: calc(8px + 2vmin);
+    padding: 1rem;
+  }
+
+  .App-logo {
+    height: 30vmin;
+  }
+}
+
+/* Keyframes */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
