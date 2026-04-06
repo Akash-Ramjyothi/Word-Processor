@@ -1,46 +1,111 @@
 .button {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px 0;
   padding: 12px 34px;
   font-size: 16px;
   font-weight: 600;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  line-height: 1;
+  user-select: none;
 }
 
-.button:focus {
+/* Focus accessibility */
+.button:focus-visible {
   outline: 3px solid rgba(0, 98, 131, 0.5);
-  outline-offset: 2px;
+  outline-offset: 3px;
+}
+
+/* Disabled state */
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Text button */
+.button--text {
+  background: transparent;
+  color: var(--primary-color);
 }
 
 .button--text:hover {
   text-decoration: underline;
+  opacity: 0.85;
 }
 
+/* Primary animated button */
 .button--animated {
-  background-color: var(--primary-color);
-  color: white;
+  background: linear-gradient(135deg, var(--primary-color), #004d66);
+  color: #fff;
   overflow: hidden;
   position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+.button--animated:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* Active click feedback */
+.button--animated:active {
+  transform: scale(0.97);
+}
+
+/* Text animation */
 .button--animated .button__text {
   display: inline-block;
   transition: transform 0.3s ease;
 }
 
+/* Icon animation */
 .button--animated .button__icon {
   position: absolute;
-  right: -20px;
-  transition: right 0.3s ease;
+  right: -24px;
+  transition: right 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
 }
 
+/* Hover animations */
 .button--animated:hover .button__text {
-  transform: translateX(-10px);
+  transform: translateX(-12px);
 }
 
 .button--animated:hover .button__icon {
-  right: 20px;
+  right: 18px;
+  opacity: 1;
+}
+
+/* Ripple effect */
+.button--animated::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transition: width 0.4s ease, height 0.4s ease;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.button--animated:active::after {
+  width: 200px;
+  height: 200px;
+}
+
+/* Small & large variants */
+.button--sm {
+  padding: 8px 20px;
+  font-size: 14px;
+}
+
+.button--lg {
+  padding: 16px 40px;
+  font-size: 18px;
 }
