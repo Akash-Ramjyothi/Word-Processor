@@ -2,14 +2,46 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #42c0f2;
-  border-radius: 10px;
-  color: #165b76;
-  background: #cfeffc;
+
+  width: 100%;
+  max-width: 320px;
   height: 70px;
-  width: 300px;
-  margin-top: 10px;
-  margin-left: 42%;
-  font-weight: 500;
-  font-size: 20px;
+
+  margin: 16px auto;
+  padding: 0 16px;
+
+  border: 1px solid #42c0f2;
+  border-radius: 12px;
+
+  color: #165b76;
+  background: linear-gradient(135deg, #e6f7ff, #cfeffc);
+
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+/* Hover effect */
+.outputContainer:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Active (click) effect */
+.outputContainer:active {
+  transform: scale(0.98);
+}
+
+/* Responsive tweak */
+@media (max-width: 480px) {
+  .outputContainer {
+    font-size: 16px;
+    height: 60px;
+    padding: 0 12px;
+  }
 }
