@@ -1,3 +1,4 @@
+/* ===== RESET & VARIABLES ===== */
 *,
 *::before,
 *::after {
@@ -9,41 +10,78 @@
   --secondary-color: #00a2ff;
   --text-color: #333333;
   --background-color: #f5f5f7;
+
+  /* NEW DESIGN TOKENS */
+  --border-radius: 6px;
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.3s ease;
+  --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --input-bg: #f9fafb;
+  --input-focus-bg: #ffffff;
+  --error-color: #ff4d4f;
+  --success-color: #22c55e;
+}
+
+/* ===== GLOBAL STYLING ===== */
+body {
+  background: var(--background-color);
+  color: var(--text-color);
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  margin: 0;
+}
+
+.parent-container {
+  padding-top: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+  transition: transform var(--transition-medium);
 }
 
-.parent-container {
-  padding-top: 10%;
+.App-logo:hover {
+  transform: scale(1.05) rotate(2deg);
 }
 
+/* ===== BASE FIELD ===== */
 .custom-field {
   position: relative;
   font-size: 16px;
-  border-top: 20px solid transparent;
-  margin-top: 50px;
-  margin-bottom: 5px;
+  margin: 40px 0 10px;
   display: inline-block;
   --field-padding: 12px;
+  transition: transform var(--transition-fast);
 }
 
+.custom-field:hover {
+  transform: translateY(-2px);
+}
+
+/* ===== INPUT ===== */
 .custom-field input {
   border: none;
-  -webkit-appearance: none;
-  -ms-appearance: none;
-  -moz-appearance: none;
   appearance: none;
-  background: #f2f2f2;
+  background: var(--input-bg);
   padding: var(--field-padding);
-  border-radius: 3px;
-  width: 250px;
+  border-radius: var(--border-radius);
+  width: 260px;
   outline: none;
   font-size: 14px;
+  transition: all var(--transition-medium);
+  box-shadow: var(--shadow-light);
 }
 
+.custom-field input:focus {
+  background: var(--input-focus-bg);
+  box-shadow: 0 0 0 2px rgba(59, 66, 213, 0.2);
+}
+
+/* ===== PLACEHOLDER ===== */
 .custom-field .placeholder {
   position: absolute;
   left: var(--field-padding);
@@ -52,140 +90,107 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   top: 22px;
-  line-height: 100%;
   transform: translateY(-50%);
   color: #aaa;
-  transition: top 0.3s ease, color 0.3s ease, font-size 0.3s ease;
+  transition: all var(--transition-medium);
+  pointer-events: none;
 }
 
-.custom-field input.dirty + .placeholder,
 .custom-field input:focus + .placeholder,
-.custom-field input:not(:placeholder-shown) + .placeholder {
+.custom-field input:not(:placeholder-shown) + .placeholder,
+.custom-field input.dirty + .placeholder {
   top: -10px;
-  font-size: 10px;
-  color: #222;
+  font-size: 11px;
+  color: var(--primary-color);
+  font-weight: 600;
 }
 
-/* ONE */
+/* ===== FIELD STATES ===== */
+.custom-field.success input {
+  border: 2px solid var(--success-color);
+}
+
+.custom-field.error input {
+  border: 2px solid var(--error-color);
+}
+
+.custom-field.error .placeholder {
+  color: var(--error-color);
+}
+
+/* ===== STYLE ONE ===== */
 .custom-field.one input {
   background: none;
   border: 2px solid #ddd;
-  transition: border-color 0.3s ease;
 }
 
-.custom-field.one input + .placeholder {
-  left: 8px;
-  padding: 0 5px;
-}
-
-.custom-field.one input.dirty,
-.custom-field.one input:not(:placeholder-shown),
 .custom-field.one input:focus {
-  border-color: #222;
-  transition-delay: 0.1s;
+  border-color: var(--primary-color);
 }
 
-.custom-field.one input.dirty + .placeholder,
-.custom-field.one input:not(:placeholder-shown) + .placeholder,
 .custom-field.one input:focus + .placeholder {
-  top: 0;
-  font-size: 10px;
-  color: #222;
   background: #fff;
-  width: auto;
+  padding: 0 6px;
 }
 
-/* TWO */
+/* ===== STYLE TWO ===== */
 .custom-field.two input {
   border-radius: 0;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  background: linear-gradient(90deg, #222, #222) center bottom/0 0.15em
-      no-repeat,
-    linear-gradient(90deg, #ccc, #ccc) left bottom/100% 0.15em no-repeat,
-    linear-gradient(90deg, #fafafa, #fafafa) left bottom/100% no-repeat;
-  transition: background-size 0.3s ease;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) center bottom/0 2px no-repeat,
+              linear-gradient(90deg, #ccc, #ccc) left bottom/100% 2px no-repeat,
+              var(--input-bg);
+  transition: background-size var(--transition-medium);
 }
 
-.custom-field.two input.dirty,
-.custom-field.two input:not(:placeholder-shown),
 .custom-field.two input:focus {
-  background-size: 100% 0.15em, 100% 0.1em, 100%;
+  background-size: 100% 2px, 100% 2px, 100%;
 }
 
-/* THREE */
+/* ===== STYLE THREE (ENHANCED BORDER ANIMATION) ===== */
 .custom-field.three {
-  border: 2px solid #ddd;
-  --draw-duration: 0.1s;
-  --draw-color: #222;
-  --draw-line-width: 2px;
-  --draw-easing: linear;
+  border-radius: var(--border-radius);
+  overflow: hidden;
 }
 
 .custom-field.three .border {
-  width: 100%;
-  height: 100%;
   position: absolute;
-  left: 0;
-  top: 0;
-  transform: none;
-  display: flex;
-  align-items: center;
-  padding-left: 12px;
-  border-radius: 3px;
+  inset: 0;
+  border-radius: var(--border-radius);
 }
 
-.custom-field.three .border::after,
-.custom-field.three .border::before {
-  content: "";
-  width: 0;
-  height: 0;
-  display: inline-block;
-  position: absolute;
-  border-radius: 1px;
-}
-
-.custom-field.three .border::before {
-  left: 0;
-  bottom: 0;
-  border-right: 0px solid var(--draw-color);
-  border-bottom: 0px solid var(--draw-color);
-  transition: border 0s linear calc(var(--draw-duration) * 4),
-    height var(--draw-duration) var(--draw-easing)
-      calc(var(--draw-duration) * 2),
-    width var(--draw-duration) var(--draw-easing) calc(var(--draw-duration) * 3);
-}
-
+.custom-field.three .border::before,
 .custom-field.three .border::after {
-  right: 0;
-  top: 0;
-  border-left: 0px solid var(--draw-color);
-  border-top: 0px solid var(--draw-color);
-  transition: border 0s linear calc(var(--draw-duration) * 2),
-    height var(--draw-duration) var(--draw-easing),
-    width var(--draw-duration) var(--draw-easing) var(--draw-duration);
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--border-radius);
+  border: 2px solid transparent;
+  transition: all var(--transition-medium);
 }
 
-.custom-field.three input:focus ~ .border::before,
-.custom-field.three input:not(:placeholder-shown) ~ .border::before,
-.custom-field.three input.dirty ~ .border::before,
-.custom-field.three input:focus ~ .border::after,
-.custom-field.three input:not(:placeholder-shown) ~ .border::after,
-.custom-field.three input.dirty ~ .border::after {
-  width: 100%;
-  height: 100%;
-  border-width: var(--draw-line-width);
-}
-
-.custom-field.three input:not(:placeholder-shown) ~ .border::before,
-.custom-field.three input.dirty ~ .border::before,
 .custom-field.three input:focus ~ .border::before {
-  transition-delay: 0s, var(--draw-duration), 0s;
+  border-color: var(--primary-color);
+  transform: scale(1.02);
 }
 
-.custom-field.three input:not(:placeholder-shown) ~ .border::after,
-.custom-field.three input.dirty ~ .border::after,
-.custom-field.three input:focus ~ .border::after {
-  transition-delay: calc(var(--draw-duration) * 2),
-    calc(var(--draw-duration) * 3), calc(var(--draw-duration) * 2);
+.custom-field.three input:not(:placeholder-shown) ~ .border::after {
+  border-color: var(--secondary-color);
+}
+
+/* ===== CHARACTER COUNT ===== */
+.custom-field .char-count {
+  position: absolute;
+  right: 5px;
+  bottom: -18px;
+  font-size: 11px;
+  color: #999;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .custom-field input {
+    width: 100%;
+  }
 }
